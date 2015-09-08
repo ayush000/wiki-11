@@ -8,10 +8,16 @@
 </head>
 <body>
 
+{% if loggedin is none or loggedin==False %}
 <div class="logon">
     <a href="/login">Login</a> |
     <a href="/signup">Sign Up</a>
 </div>
+{% else %}
+    <div class="logon">
+        Hello {{ user_name }}<a href="/logout">(logout)</a>
+    </div>
+{% endif %}
 <div class="main">
     {% block content %}
     {% endblock %}
