@@ -203,10 +203,10 @@ class WikiPage(Handler):
             self.render('page.html', loggedin=loggedin, user_name=user_name, pages=pages, ct=content)
         else:
             self.redirect('/_edit{}'.format(page))
-        self.write(loggedin)
+            # self.write(loggedin)
         # if page in pages.url:
         # self.write(page)
-        self.write(pages)
+            # self.write(pages)
 
 
 
@@ -233,7 +233,7 @@ class EditPage(Handler):
         p = Pages(url=p2, content=content)
         logging.error("INSERT IN DB")
         p.put()
-        self.write(p2)
+        # self.write(p2)
         time.sleep(0.3)
         self.redirect(p2)
 
